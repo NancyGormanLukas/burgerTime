@@ -1,0 +1,59 @@
+<h1>YUM YUM JOINT</h1>
+
+<div id="burgers">
+
+  <div id="available">
+    <h2>Available Burgers</h2>
+    <ul>
+      {{#each burgers}}
+        {{#unless this.devoured}}
+          <li>
+            {{this.burger_name}}
+
+            <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+              <input type="hidden" name="devoured" value="true">
+              <button type="submit">YUM</button>
+            </form>
+
+            
+          </li>
+        {{/unless}}
+      {{/each}}
+    </ul>
+  </div>
+
+  <img id="burgerPic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBVSnzDefIn7c5gHqjGM_KdjFTgvpfZA0Ikxcldj2wftk4F36L">
+
+  <div id="eaten">
+    <h2>Already Eaten Burgers</h2>
+    <ul>
+      {{#each burgers}}
+        {{#if this.devoured}}
+          <li>
+            {{this.burger_name}}
+
+            <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+              <input type="hidden" name="devoured" value="false">
+              <button type="submit">YUM</button>
+            </form>
+          </li>
+        {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+</div>
+
+<div id="add-burger">
+  <div id="input">
+    <h2>Add a new burger:</h2>
+    <form class="create-update-form" action="burgers/create" method="POST">
+
+      <div class="form-group">
+        <label for="ca">Your New Burger's Name:</label>
+        <input type="text" id="ca" name="burger_name">
+      </div>
+
+      <button id="add-burger-button" type="submit">Add New Burger</button>
+    </form>
+  </div>
+</div>
