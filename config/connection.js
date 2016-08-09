@@ -4,26 +4,30 @@
 
 var mysql = require('mysql');
 
-var source = {
+// var source = {
 
-    localhost: {
-        port: 3000,
-        host: 'localhost',
-        user: 'root',
-        password: "",
-        database: "burgers_db"
-    },
+//     localhost: {
+//         host: 'localhost',
+//         user: 'root',
+//         password: "",
+//         database: "burgers_db"
+//     },
 
-     burgersDB: {
-        port: 3000,
-        host: 'l9dwvv6j64hlhpul.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-        user: 'cm0zdmk2ez4igof5',
-        password: "yuhl98jsef0k7ul4",
-        database: "lghowl35ljxl5vao" 
-    }
-}
+//      burgersDB: {
+//         port: 3000,
+//         host: 'l9dwvv6j64hlhpul.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+//         user: 'cm0zdmk2ez4igof5',
+//         password: "yuhl98jsef0k7ul4",
+//         database: "lghowl35ljxl5vao" 
+//     }
+// }
 
-var connection = mysql.createConnection(source.burgersDB);
+var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: "",
+    database: "burgers_db"
+});
 
 
 connection.connect(function(err) {
